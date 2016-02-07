@@ -20,7 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "action_layer.h"
 #include "action.h"
 #include "action_macro.h"
+#include "wait.h"
 #include "debug.h"
+#include "bootloader.h"
 
 
 static action_t keycode_to_action(uint8_t keycode);
@@ -122,7 +124,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 /* translates keycode to action */
 static action_t keycode_to_action(uint8_t keycode)
 {
-    action_t action;
+    action_t action = {};
     switch (keycode) {
         case KC_A ... KC_EXSEL:
         case KC_LCTRL ... KC_RGUI:
@@ -139,6 +141,11 @@ static action_t keycode_to_action(uint8_t keycode)
             break;
         case KC_TRNS:
             action.code = ACTION_TRANSPARENT;
+            break;
+        case KC_BOOTLOADER:
+            clear_keyboard();
+            wait_ms(50);
+            bootloader_jump(); // not return
             break;
         default:
             action.code = ACTION_NO;
