@@ -1,4 +1,4 @@
-static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * Keymap: Default Layer in Dvorak (Layer 0)
      *
@@ -198,7 +198,7 @@ enum function_id {
 /*
  * Fn action definition
  */
-static const uint16_t PROGMEM fn_actions[] = {
+const uint16_t PROGMEM fn_actions[] = {
     ACTION_FUNCTION(TEENSY_KEY),                    // FN0 - Teensy key
     ACTION_LAYER_MOMENTARY(1),                      // FN1 - switch to Layer1
     ACTION_LAYER_MOMENTARY(2),                      // FN2 - switch to Layer2
