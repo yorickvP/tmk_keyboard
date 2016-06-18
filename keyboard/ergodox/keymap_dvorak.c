@@ -1,3 +1,6 @@
+#include "bootloader.h"
+#include "keymap_common.h"
+
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * Keymap: Default Layer in Dvorak (Layer 0)
